@@ -180,18 +180,86 @@ select{font:inherit;padding:10px;border-radius:10px;border:1px solid var(--bd);w
 .lnk{display:block;margin:-2px 0 6px auto;color:var(--co);font-size:13px;font-weight:600}
 #amsg{min-height:20px;font-size:13px;margin-bottom:10px;line-height:1.35}
 #ago{width:100%;padding:14px;font-size:15px}
+.w{padding-bottom:100px}
+#toast{bottom:calc(92px + env(safe-area-inset-bottom,0px))}
+.ic.bell{width:34px;padding:0;display:grid;place-items:center;position:relative}.bell svg{width:16px;height:16px}
+.nbg{position:absolute;top:-6px;right:-6px;min-width:17px;height:17px;border-radius:99px;background:#fff;color:var(--co);border:1.5px solid var(--co);font-size:10px;font-weight:800;display:grid;place-items:center;padding:0 3px}
+.nv{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:100%;max-width:460px;z-index:6;display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:22px 22px 0 0;box-shadow:0 -4px 20px #1d223514;padding:8px 6px calc(8px + env(safe-area-inset-bottom,0px))}
+.nv button{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--mu);padding:2px 0}
+.nv .ni{width:46px;height:28px;border-radius:99px;display:grid;place-items:center;transition:background .25s,color .25s}
+.nv svg{width:20px;height:20px;fill:currentColor}
+.nv button.on{color:var(--co)}.nv button.on .ni{background:#ff5a5f1f}
+.nc{background:#fff;border-radius:14px;padding:12px 14px;margin:0 14px 10px;box-shadow:0 1px 6px #0000000d}
+.nc b{display:block;font-size:14px;margin-bottom:3px}.nc p{font-size:13px;color:#4a5068;line-height:1.4;overflow-wrap:anywhere}.nc small{display:block;color:var(--mu);font-size:11px;margin-top:6px}
+.nc.nw{border-left:4px solid var(--co)}
+textarea{font:inherit;padding:10px;border-radius:10px;border:1px solid var(--bd);width:100%;resize:none;background:#fff;color:var(--tx)}
+.fq{background:#fff;border-radius:12px;margin:0 14px 8px;padding:12px 14px;box-shadow:0 1px 6px #0000000d}.fq summary{font-weight:600;cursor:pointer}.fq p{color:#4a5068;font-size:13px;margin-top:8px;line-height:1.4}
+.pf{margin:-36px 14px 14px;background:#fff;border-radius:16px;padding:16px;box-shadow:0 2px 10px #0001}
+.pr{display:flex;align-items:center;gap:12px}
+.av{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#ff5a5f,#ff9494);color:#fff;font-size:20px;font-weight:800;display:grid;place-items:center;flex:none}
+.pr>div:nth-child(2){flex:1;min-width:0}.pr b{display:block;font-size:17px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.pr small{color:var(--mu);font-size:12px}
+.cp{padding:7px 14px;font-size:12px}
+.pb{margin-top:14px;padding-top:14px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:flex-end}
+.pb small{color:var(--mu);font-size:13px;display:block}.pb strong{font-size:30px}.pb span{color:var(--mu);font-size:12px}
+.rc{border:1.5px dashed var(--co);border-radius:12px;padding:12px;text-align:center;font-size:22px;font-weight:800;letter-spacing:2px;color:var(--co);margin:10px 0 12px;user-select:all}
+.card h3{font-size:16px;margin-bottom:4px}.card p{font-size:13px;color:#4a5068;line-height:1.4}
+
+@keyframes rpIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.p.on{animation:rpIn .28s ease both}
+@media (prefers-reduced-motion:reduce){.p.on{animation:none}}
+.rwk{display:flex;align-items:stretch;background:#fff;border-radius:16px;margin:0 14px 12px;box-shadow:0 2px 10px #0000000f;overflow:hidden}
+.rwki{width:84px;flex:none;background:linear-gradient(135deg,#ff5a5f,#ff9494);display:grid;place-items:center;color:#fff;font-size:28px;font-weight:800;overflow:hidden}
+.rwki img{width:100%;height:100%;object-fit:cover}
+.rwkb{flex:1;min-width:0;padding:12px;border-left:2px dashed #ff5a5f55}
+.rwkb b{display:block;font-size:15px;margin:4px 0 2px}.rwkb p{font-size:12px;color:#4a5068;line-height:1.35;overflow-wrap:anywhere}
+.rwg{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--co);background:#ff5a5f1a;border-radius:99px;padding:2px 8px}
+.rwkr{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:10px 12px;border-left:2px dashed #ff5a5f55}
+.rwkr strong{font-size:20px;line-height:1}.rwkr small{color:var(--mu);font-size:11px;margin-top:-3px}
+.rwkr .pill{padding:8px 14px;font-size:12px}.rwkr .pill:disabled{opacity:.5}
+.rws{font-size:11px;font-weight:700;border-radius:99px;padding:3px 10px;white-space:nowrap}
+.rws.pending{background:#fff3cd;color:#8a6d00}.rws.done{background:#d9f7e4;color:#12804a}.rws.rejected{background:#fde2e2;color:#b42318}
+.rwh{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.rwh b{margin:0}
+.rwchip{display:inline-flex;align-items:center;gap:6px;background:#ff5a5f14;color:var(--co);border-radius:99px;padding:4px 11px 4px 4px;font-size:12px;font-weight:600}
+.rwchip img,.rwchip i{width:22px;height:22px;border-radius:50%;object-fit:cover;background:var(--co);flex:none}
+.rwit{display:flex;flex-wrap:wrap;gap:6px;margin:0 14px 12px}.pit{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.pit:empty{display:none}
+#dc{position:fixed;inset:0;z-index:40;background:#1d2233ea;display:grid;place-items:center;padding:20px;overflow:auto}
+#dc.off{display:none}
+.dcb{background:#fff;border-radius:22px;padding:24px 22px;max-width:380px;width:100%;animation:rpIn .35s ease both}
+.dci{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#ff5a5f,#ff9494);color:#fff;font-size:26px;font-weight:800;display:grid;place-items:center;margin-bottom:12px}
+.dcb h2{font-size:21px;margin-bottom:10px}.dcb ul{list-style:none;padding:0;margin:0 0 18px}
+.dcb li{font-size:14px;line-height:1.45;color:#4a5068;padding:8px 0 8px 18px;position:relative;border-bottom:1px solid var(--bd)}
+.dcb li:last-child{border:0}.dcb li:before{content:"";position:absolute;left:0;top:15px;width:8px;height:8px;border-radius:50%;background:var(--co)}
+
+.nrm{margin:8px 16px 0;font-size:12px;color:var(--mu);text-align:center}
+.aun{font-size:12px;color:var(--mu);text-align:center;margin-top:12px;line-height:1.5}
+.aun .lnk{display:inline;padding:0;font-size:12px;font-weight:600}
+#pv{position:fixed;inset:0;z-index:50;background:#1d2233ea;display:grid;place-items:center;padding:14px}
+#pv.off{display:none}
+.pvb{background:#fff;border-radius:20px;width:100%;max-width:440px;max-height:92vh;display:flex;flex-direction:column;overflow:hidden;animation:rpIn .3s ease both}
+.pvh{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--bd);font-size:17px}
+.pvh .pill{padding:8px 16px;font-size:13px}
+.pvt{padding:6px 18px 22px;overflow:auto;font-size:13.5px;line-height:1.55;color:#4a5068}
+.pvt h3{color:var(--tx);font-size:15px;margin:18px 0 4px}.pvt ul{padding-left:18px;margin:4px 0}.pvt li{margin:3px 0}
+.pvt .nm{background:#ff5a5f14;border-left:4px solid var(--co);padding:10px 12px;border-radius:8px;color:var(--tx);font-weight:600;margin:12px 0 4px}
+.pvt small{color:var(--mu)}
 </style></head><body><div class="w">
-<div class="hd"><button class="bk" id="back" aria-label="Back">‹</button><b class="lg">I <svg class="ht" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 3 4.5 6.6 4.5c2 0 3.7 1.1 5.4 3.1 1.7-2 3.4-3.1 5.4-3.1 3.6 0 5.7 3.7 4.2 7.2C19.5 16.4 12 21 12 21z"/></svg> Colour Prediction</b><div><button class="ic" id="rk" aria-label="Ranking">Rank</button><button class="ic" id="ad" aria-label="Admin" style="display:none">Admin</button></div></div>
+<div class="hd"><button class="bk" id="back" aria-label="Back">‹</button><b class="lg">I <svg class="ht" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 3 4.5 6.6 4.5c2 0 3.7 1.1 5.4 3.1 1.7-2 3.4-3.1 5.4-3.1 3.6 0 5.7 3.7 4.2 7.2C19.5 16.4 12 21 12 21z"/></svg> Colour Prediction</b><div><button class="ic bell" id="bellb" aria-label="Notifications"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 22a2.4 2.4 0 0 0 2.4-2.4H9.6A2.4 2.4 0 0 0 12 22zm7-6v-5a7 7 0 0 0-5-6.7V3a2 2 0 0 0-4 0v1.3A7 7 0 0 0 5 11v5l-2 2v1h18v-1z"/></svg><span class="nbg" id="nbg" style="display:none"></span></button><button class="ic" id="rk" aria-label="Ranking">Rank</button><button class="ic" id="ad" aria-label="Admin" style="display:none">Admin</button></div></div>
 <div class="warn" id="ban">Your account has been blocked by the admin.</div><div class="warn" id="pause">The game is paused right now.</div>
 
 <div class="p on" id="ph">
 <div class="bn"><div class="bt" id="bt"></div><div class="bdots" id="bdots"></div></div>
-<div class="hs"><div><small>Your tokens</small><b id="bal2">0</b></div><button class="pill ol" id="lo" style="display:none;padding:9px 16px">Log out</button></div>
+<div class="hs"><div><small>Balance</small><b id="bal2">0</b></div><button class="pill" id="hp" style="padding:11px 22px">Play</button></div>
+<div class="nrm">No real money is involved. Tokens are for play only.</div>
+<div id="hn"></div>
 <div class="gh">Games</div>
 <div class="gl" id="gl"></div>
 </div>
+<div class="p" id="pg"><div class="gh" style="margin-top:6px">Games</div><div class="nrm" style="margin:-4px 16px 10px;text-align:left">No real money is involved. Tokens are for play only.</div><div class="gl" id="gl2"></div>
+<button class="gc" id="lbk" style="margin:14px;width:calc(100% - 28px)"><div class="gi"><b>Leaderboard</b><span>See the top players</span></div><span class="pill">View</span></button></div>
 <div class="p" id="p0">
-<div class="wl"><small>Your tokens</small><strong id="bal">0</strong><span class="chip" id="who"></span><div class="wb"><button class="pill" id="daily">Get more</button><button class="pill ol" id="rf">Refresh</button></div></div>
+<div class="wl"><small>Balance</small><strong id="bal">0</strong><span class="chip" id="who"></span><div class="wb"><button class="pill" id="daily">Get more</button><button class="pill ol" id="rf">Refresh</button></div></div>
+<div class="nrm">No real money is involved. Tokens are for play only.</div>
 <div class="gt" id="gt"><button class="g on" data-d="30"><div class="clk"></div>Colour<br>30sec</button><button class="g" data-d="60"><div class="clk"></div>Colour 1<br>Min</button><button class="g" data-d="180"><div class="clk"></div>Colour 3<br>Min</button><button class="g" data-d="300"><div class="clk"></div>Colour 5<br>Min</button></div>
 <div class="tk" id="tk"><div class="tl"><button class="how" id="how">How to play</button><div id="tn" style="font-size:13px"></div><div class="mr" id="mr"></div></div>
 <div class="tr"><b>Time remaining</b><div id="tm"><span class="dg"></span><span class="dg"></span><span class="cl">:</span><span class="dg"></span><span class="dg"></span></div><div class="pid" id="pid"></div></div></div>
@@ -208,8 +276,11 @@ select{font:inherit;padding:10px;border-radius:10px;border:1px solid var(--bd);w
 </div>
 
 <div class="p" id="p1"><div class="card"><div class="lbl">Ranking</div><div class="lbl" id="lbn"></div><table id="lb"></table></div></div>
-<div class="p" id="p2"><div class="card"><div class="lbl">Admin settings</div>
-<div class="lbl">Daily reward (0 = off)</div><input id="sd" type="number" min="0" max="1000" style="width:100%;margin-bottom:10px"><div class="lbl">Smallest bet</div><input id="sm" type="number" min="1" style="width:100%;margin-bottom:10px">
+<div class="p" id="p2"><div class="card"><div class="lbl">Send notification</div>
+<input id="nti" placeholder="Title" maxlength="60" style="width:100%;margin:6px 0 8px"><textarea id="nms" rows="3" maxlength="300" placeholder="Message for all players" style="margin-bottom:8px"></textarea>
+<button class="pill" id="nsend" style="width:100%;padding:14px">Send to all</button><div class="lbl" style="margin-top:12px">Sent notifications</div><div id="anl"></div></div>
+<div class="card"><div class="lbl">Admin settings</div>
+<div class="lbl">Daily reward (0 = off)</div><input id="sd" type="number" min="0" max="1000" style="width:100%;margin-bottom:10px"><div class="lbl">Smallest bet</div><input id="sm" type="number" min="1" style="width:100%;margin-bottom:10px"><div id="srw" style="display:none"><div class="lbl">Refer bonus (tokens for each friend)</div><input id="srb" type="number" min="0" style="width:100%;margin-bottom:10px"></div>
 <label style="display:flex;gap:8px;margin-bottom:12px;font-size:13px;align-items:center"><input type="checkbox" id="sp"> Pause the game</label><button class="pill" id="ss" style="width:100%;padding:14px">Save</button></div>
 <div class="card"><div class="lbl">Home banners</div><div id="bl"></div>
 <input id="bti" placeholder="Title" style="width:100%;margin:10px 0 8px"><input id="bsu" placeholder="Short text" style="width:100%;margin-bottom:8px"><input id="bim" placeholder="Image address (optional)" style="width:100%;margin-bottom:8px">
@@ -219,9 +290,73 @@ select{font:inherit;padding:10px;border-radius:10px;border:1px solid var(--bd);w
 <input id="gim" placeholder="Picture address (optional)" style="width:100%;margin:6px 0 8px">
 <select id="gco"><option value="coral">Red</option><option value="green">Green</option><option value="violet">Violet</option><option value="blue">Blue</option></select>
 <div style="display:flex;gap:10px"><button class="pill" id="gsave" style="flex:1;padding:14px">Save</button><button class="pill ol" id="gclr" style="flex:1;padding:14px">Remove picture</button></div></div>
-<div class="card"><div class="lbl">Players</div><div class="lbl" id="un"></div><table id="ul"></table></div></div>
+<div class="card"><div class="lbl">Players</div><div class="lbl" id="un"></div><div class="xr" style="margin-bottom:8px"><input id="usq" placeholder="Search by UID or name" style="flex:1;min-width:0"><button class="pill" id="usb" style="padding:10px 16px">Find</button></div><table id="ul"></table></div><div class="card"><div class="lbl">Rewards (badges, characters, skills)</div>
+<input id="rwt" placeholder="Title" maxlength="40" style="width:100%;margin:6px 0 8px"><textarea id="rwd" rows="2" maxlength="160" placeholder="Details" style="margin-bottom:8px"></textarea>
+<input id="rwi" placeholder="Image link (https://...)" style="width:100%;margin-bottom:8px">
+<div class="xr" style="margin-bottom:8px"><select id="rwy" style="flex:1;min-width:0"><option>Badge</option><option>Character</option><option>Skill</option></select><input id="rwc" type="number" min="1" placeholder="Token cost" style="flex:1;min-width:0"></div>
+<button class="pill" id="rwadd" style="width:100%;padding:14px">Add reward</button><div class="lbl" style="margin-top:12px">Current rewards</div><div id="arl"></div></div>
+<div class="card"><div class="lbl">Reward requests</div><div id="rql"></div></div>
+<div class="card"><div class="lbl">Support messages</div><div id="spl"></div></div></div>
+<div class="p" id="p3"><div class="gh" style="margin-top:6px">Notifications</div><div id="nl"></div></div>
+<div class="p" id="p4"><div class="gh" style="margin-top:6px">Support</div><div class="nrm" style="margin:-4px 16px 10px;text-align:left">No real money is involved. Tokens are for play only.</div>
+<details class="fq"><summary>How do I get more tokens?</summary><p>Tap Get more on the game page once a day, or invite friends from My Account.</p></details>
+<details class="fq" id="fqr"><summary>How does Refer &amp; Earn work?</summary><p>Share your code from My Account. When a friend enters it, you both get tokens.</p></details>
+<details class="fq"><summary>I forgot my password</summary><p>Log out, then tap Forgot password on the login screen. We will email you a reset link.</p></details>
+<div class="card"><h3>Still need help?</h3><p style="margin-bottom:10px">Write your problem and send it to our team.</p><textarea id="sup" rows="4" maxlength="500" placeholder="Type your message"></textarea><button class="pill" id="ssend" style="width:100%;padding:14px;margin-top:10px">Send message</button></div>
+<div class="gh">Your messages</div><div id="sml"></div></div>
+<div class="p" id="p5"><div class="pf"><div class="pr"><div class="av" id="av">P</div><div><b id="an">Player</b><small>UID: <span id="aid">-</span></small></div><button class="pill ol cp" id="cuid">Copy</button></div>
+<div class="pb"><div><small>Balance</small><strong id="bal3">0</strong></div><span>tokens</span></div><div class="pit" id="pit"></div></div>
+<button class="gc" id="rwb" style="margin:0 14px 14px;width:calc(100% - 28px)"><div class="gi"><b>Rewards &amp; history</b><span>Spend tokens on badges, characters and skills</span></div><span class="pill">Open</span></button>
+<button class="gc" id="pvb" style="margin:0 14px 14px;width:calc(100% - 28px)"><div class="gi"><b>Privacy Policy</b><span>How your data is used. No real money is involved.</span></div><span class="pill">Read</span></button>
+<div class="card" id="rfc"><h3>Refer &amp; Earn</h3><p>Invite a friend. When they enter your code, you both get <b id="rfn">100</b> tokens.</p>
+<div class="rc" id="rcode">-</div><button class="pill" id="rsh" style="width:100%;padding:13px">Invite friends</button>
+<div class="lbl" style="margin-top:12px;text-align:center">Friends joined: <b id="rcnt">0</b></div>
+<div class="xr" id="rrow" style="margin-top:10px"><input id="rin" placeholder="Got a friend's code?" style="flex:1;min-width:0"><button class="pill" id="rap" style="padding:11px 18px">Apply</button></div><div class="lbl ok" id="rdone" style="display:none;margin:10px 0 0">Refer code applied.</div></div>
+<div style="margin:0 14px"><button class="pill ol" id="lo" style="display:none;width:100%;padding:13px">Log out</button></div>
+<div class="lbl" style="text-align:center;margin:14px">No real money is involved. Tokens are for play only and have no cash value.</div></div>
+<div class="p" id="p6"><div class="gh" style="margin-top:6px">Rewards</div><div class="lbl" style="margin:0 16px 12px">No real money is involved. Spend play tokens on in-app badges, characters and skills. Rewards work inside this app only.</div><div id="rwl"></div>
+<div class="gh">My items</div><div class="rwit" id="myi"></div>
+<div class="gh">History</div><div id="rhl"></div></div>
 </div>
 
+<div id="pv" class="off"><div class="pvb"><div class="pvh"><b>Privacy Policy</b><button class="pill ol" id="pvx">Close</button></div><div class="pvt">
+<small>Last updated: 7 October 2026</small>
+<div class="nm">No real money is involved. This app does not accept deposits or payments, does not sell coins or tokens, and does not offer withdrawals or cash prizes. Tokens have no cash value.</div>
+<h3>1. About this app</h3><p>Colour Prediction is a game played with virtual play tokens, made for entertainment only.</p>
+<h3>2. No real money</h3><ul>
+<li>You cannot deposit money, pay, or buy tokens in this app.</li>
+<li>You cannot withdraw money. There are no cash prizes.</li>
+<li>Tokens cannot be exchanged for money, goods or services outside this app.</li>
+<li>Rewards such as badges, characters and skills exist only inside this app and have no cash value.</li>
+<li>We never ask for your bank, UPI, wallet or card details. If anyone asks you for money in the name of this app, it is not us. Do not pay them.</li></ul>
+<h3>3. Information we collect</h3><ul>
+<li>Your name and email address, and the password you choose (handled by Firebase Authentication, so we cannot see your password).</li>
+<li>A user ID (UID) and your token balance.</li>
+<li>Your game history, reward requests and the messages you send to support.</li>
+<li>Small settings saved on your device, such as which notifications you have read.</li></ul>
+<h3>4. How we use it</h3><ul>
+<li>To run the game, keep your balance and show the leaderboard.</li>
+<li>To handle rewards and reply to your support messages.</li>
+<li>To keep the app safe and block accounts that misuse it.</li></ul>
+<h3>5. Who can see your information</h3><ul>
+<li>Other players can see your name and token count on the leaderboard.</li>
+<li>The app admin can see your name, UID, balance, support messages and reward requests. The admin can change a token balance and block accounts that break the rules.</li>
+<li>We do not sell your information.</li></ul>
+<h3>6. Where it is stored</h3><p>Your data is stored with Google Firebase (Authentication and Firestore). It is shared with Firebase only to run the app, or if the law requires it.</p>
+<h3>7. Age</h3><p>This app is only for people aged 18 or older.</p>
+<h3>8. Play responsibly</h3><p>Games like this can be addictive. Play only for fun and take regular breaks. If it stops being fun, stop playing.</p>
+<h3>9. Your choices</h3><p>To correct or delete your data, send a message from the Support section of the app.</p>
+<h3>10. Security</h3><p>We take reasonable steps to protect your data, but no system is completely secure.</p>
+<h3>11. Changes</h3><p>We may update this policy. The latest version is always available in the app, under My Account.</p>
+<h3>12. Contact</h3><p>Use the Support section of the app to contact us.</p>
+</div></div></div>
+<div id="dc"><div class="dcb"><div class="dci">!</div><h2>Before you play</h2><ul>
+<li>This game can be addictive. Play only for fun and take regular breaks.</li>
+<li>No real money is involved. Tokens are for play only, have no cash value, and cannot be bought or withdrawn.</li>
+<li>Tokens can only be spent on in-app rewards such as badges, characters and skills.</li>
+<li>You must be 18 or older to play. If it stops being fun, stop playing.</li></ul>
+<button class="pill" id="dcok" style="width:100%;padding:14px">I understand</button><div class="aun">By continuing you agree to our <button class="lnk" id="dpv">Privacy Policy</button>.</div></div></div>
+<nav class="nv" id="nv"><button data-n="home" class="on"><span class="ni"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>Home</button><button data-n="games"><span class="ni"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8h10a5 5 0 0 1 4.9 6l-.6 3a2.5 2.5 0 0 1-4.2 1.3L15 17H9l-2.1 1.3A2.5 2.5 0 0 1 2.7 17l-.6-3A5 5 0 0 1 7 8zm.3 2.4v1.5H5.8v1.4h1.5v1.5h1.4v-1.5h1.5v-1.4H8.7v-1.5zm8.7.3a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm2 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg></span>Games</button><button data-n="support"><span class="ni"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H9l-5 4v-4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/></svg></span>Support</button><button data-n="account"><span class="ni"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4.2"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span>My Account</button></nav>
 <div id="ov"><div id="sheet"><div id="sh"></div><div class="sb"><div class="lbl">Amount for each bet</div>
 <div class="amt"><button id="mn">−</button><input id="amt" type="number" value="50"><button id="pl">+</button></div>
 <div class="qs"><button data-a="10">10</button><button data-a="50">50</button><button data-a="100">100</button><button data-a="500">500</button><button data-a="all">MAX</button></div>
@@ -238,6 +373,7 @@ select{font:inherit;padding:10px;border-radius:10px;border:1px solid var(--bd);w
 <button class="lnk" id="afg">Forgot password?</button>
 <div id="amsg"></div>
 <button class="pill" id="ago">Log in</button>
+<div class="aun">No real money is involved. Tokens are for play only.<br>By continuing you agree to our <button class="lnk" id="apv">Privacy Policy</button>.</div>
 </div></div></div>
 <div id="toast"></div><div id="res"><div id="rc"><button id="sk" aria-label="Skip">Skip</button><div id="rh"></div><div id="rb"></div><div id="rd"></div><button id="rok">Continue</button><div id="rbar"></div></div></div>
 
@@ -252,13 +388,14 @@ const CFG={
   appId: "1:1078139746610:web:a71c507134cc3c27db3f2b"
 };
 // Set an admin code, then add #admin at the end of the page address.
-const ADMIN_CODE="sahil@1981";
+const ADMIN_CODE="";
 const $=i=>document.getElementById(i),$$=s=>document.querySelectorAll(s);
-const S={name:"",tokens:1000,last:0,banned:false,log:[]},ST={daily:100,minBet:10,paused:false};let db=null,uid=null,adm=false,tt;
+const S={name:"",tokens:1000,last:0,banned:false,log:[],sid:"",refBy:"",refCount:0},ST={daily:100,minBet:10,paused:false,refBonus:100};let db=null,uid=null,adm=false,tt;
+try{const rq=new URLSearchParams(location.search).get("ref");if(rq)localStorage.setItem("rp3r",rq.toUpperCase().slice(0,12))}catch(e){}
 try{Object.assign(S,JSON.parse(localStorage.getItem("rp3")||"{}"));Object.assign(ST,JSON.parse(localStorage.getItem("rp3s")||"{}"))}catch(e){}
 if(!S.name&&!CFG.apiKey)S.name=(prompt("Enter your name:")||"Player").slice(0,14);
 const say=t=>{$("toast").textContent=t;$("toast").classList.add("on");clearTimeout(tt);tt=setTimeout(()=>$("toast").classList.remove("on"),2200)};
-const save=()=>{try{localStorage.setItem("rp3",JSON.stringify(S))}catch(e){}if(db&&uid)db.collection("users").doc(uid).set({name:S.name,tokens:S.tokens,banned:S.banned,last:S.last,log:S.log}).catch(()=>{})};
+const save=()=>{try{localStorage.setItem("rp3",JSON.stringify(S))}catch(e){}if(db&&uid)db.collection("users").doc(uid).set({name:S.name,tokens:S.tokens,banned:S.banned,last:S.last,log:S.log,sid:S.sid||"",refBy:S.refBy||""},{merge:true}).catch(()=>{})};
 const saveST=()=>{try{localStorage.setItem("rp3s",JSON.stringify(ST))}catch(e){}if(db)db.collection("config").doc("main").set(ST).catch(()=>{})};
 
 const CL=n=>n==0?["R","V"]:n==5?["G","V"]:n%2?["G"]:["R"];
@@ -272,14 +409,14 @@ const pid=(k,d)=>{const t=new Date(k*d*1000),m=new Date(t.getFullYear(),t.getMon
 const cur=()=>Math.floor(Date.now()/(dur*1000));
 const dots=n=>CL(n).map(c=>`<i class="dt ${c}"></i>`).join("");
 
-let shown=null,tgt=null,raf;const sb=t=>{$("bal").textContent=t;$("bal2").textContent=t};
+let shown=null,tgt=null,raf;const sb=t=>{$("bal").textContent=t;$("bal2").textContent=t;$("bal3").textContent=t};
 const countTo=v=>{if(v===tgt)return;tgt=v;if(shown===null){shown=v;sb(v.toLocaleString("en-IN"));return}const f=shown,t0=performance.now();cancelAnimationFrame(raf);
  const st=now=>{const p=Math.min(1,(now-t0)/700),e=1-Math.pow(1-p,3);shown=Math.round(f+(v-f)*e);sb(shown.toLocaleString("en-IN"));if(p<1)raf=requestAnimationFrame(st)};raf=requestAnimationFrame(st)};
 function drawSheet(){const a=Math.floor(+$("amt").value)||0,t=a*mult,m=pick==null?0:/\d/.test(pick)?9:pick=="V"?4.5:2;
  $("sh").textContent="Choose: "+(pick==null?"":nm(pick));$("sh").style.background=pick==null?"":BG[/\d/.test(pick)?CL(+pick)[0]:pick];
  $("tot").textContent=`Total ${t} • If you win about ${Math.floor(t*m)}`;
  $("go").textContent=bet?"Bet placed":"Confirm "+t}
-function draw(){countTo(Math.floor(S.tokens));$("who").textContent=S.name+" • Free, no real money";
+function draw(){countTo(Math.floor(S.tokens));$("who").textContent=S.name+" \u2022 No real money";drawAcc();
  $("ban").style.display=S.banned?"block":"none";$("pause").style.display=ST.paused?"block":"none";
  drawSheet()}
 
@@ -330,9 +467,89 @@ const SEC={h:"sh_",c:"sc_",m:"sm_"};
 $$("[data-s]").forEach(b=>b.onclick=()=>{$$("[data-s]").forEach(x=>x.classList.toggle("on",x===b));for(const k in SEC)$(SEC[k]).classList.toggle("on",k==b.dataset.s)});
 $("pv").onclick=()=>{if(page>0){page--;renderHist()}};$("nx").onclick=async()=>{const a=()=>hs().length;if(a()<=(page+1)*10&&db&&!HD[dur]){$("nx").disabled=true;await more();$("nx").disabled=false}if(a()>(page+1)*10&&page<4){page++;renderHist()}};
 
-const PN={home:"ph",game:"p0",rank:"p1",admin:"p2"};let PNL="home";
-function show(n){PNL=n;for(const k in PN)$(PN[k]).classList.toggle("on",k==n);$("back").style.visibility=n=="home"?"hidden":"visible";if(n=="rank")board();if(n=="admin")users();window.scrollTo(0,0)}
-$("back").onclick=()=>show("home");$("rk").onclick=()=>show("rank");$("ad").onclick=()=>show("admin");
+// ---- Notifications ----
+const ago=ts=>{const s=Math.floor((Date.now()-ts)/1000);if(s<60)return"Just now";if(s<3600)return Math.floor(s/60)+" min ago";if(s<86400)return Math.floor(s/3600)+" h ago";return new Date(ts).toLocaleDateString("en-IN",{day:"numeric",month:"short"})};
+let NT=[];try{NT=JSON.parse(localStorage.getItem("rp3n")||"[]")}catch(e){}
+const seenTs=()=>+(localStorage.getItem("rp3nr")||0);
+function renderNt(){const sn=seenTs(),un=NT.filter(n=>n.ts>sn).length;
+ $("nbg").textContent=un>9?"9+":un;$("nbg").style.display=un&&PNL!="notif"?"":"none";
+ $("nl").innerHTML=NT.length?NT.map(n=>`<div class="nc${n.ts>sn?" nw":""}"><b>${esc(n.t)}</b><p>${esc(n.m)}</p><small>${ago(n.ts)}</small></div>`).join(""):'<div class="em"><i></i>No notifications yet.<br>Messages from the admin will show here.</div>';
+ $("hn").innerHTML=NT[0]?`<div class="nc nw" onclick="show('notif')" style="cursor:pointer;margin-top:12px"><small style="margin:0 0 4px;color:var(--co);font-weight:600">Latest from admin</small><b>${esc(NT[0].t)}</b><p>${esc(NT[0].m)}</p></div>`:"";
+ $("anl").innerHTML=NT.length?NT.map(n=>`<div class="rr"><span>${esc(n.t)}</span><button onclick="rmN('${n.id}')" style="color:var(--r);font-weight:600">Remove</button></div>`).join(""):'<div class="lbl">Nothing sent yet.</div>'}
+function markSeen(){try{localStorage.setItem("rp3nr",String(NT[0]?NT[0].ts:Date.now()))}catch(e){}$("nbg").style.display="none"}
+const saveNT=()=>{try{localStorage.setItem("rp3n",JSON.stringify(NT))}catch(e){}};
+$("nsend").onclick=async()=>{const t=$("nti").value.trim(),m=$("nms").value.trim();if(!t)return say("Write a title");if(!m)return say("Write a message");
+ const n={t:t.slice(0,60),m:m.slice(0,300),ts:Date.now()};
+ if(db){try{await db.collection("notifs").add(n)}catch(e){return say("Could not send. Check Firebase rules.")}}else{n.id="l"+n.ts;NT.unshift(n);saveNT();renderNt()}
+ $("nti").value=$("nms").value="";say("Notification sent")};
+window.rmN=async id=>{if(db){try{await db.collection("notifs").doc(id).delete()}catch(e){say("Could not remove")}}else{NT=NT.filter(n=>n.id!=id);saveNT();renderNt()}};
+// ---- Support ----
+$("ssend").onclick=async()=>{const m=$("sup").value.trim();if(!m)return say("Write your message first");if(!db||!uid)return say("Log in to send a message");
+ $("ssend").disabled=true;try{await db.collection("support").add({uid,sid:S.sid,name:S.name,m:m.slice(0,500),ts:Date.now()});$("sup").value="";say("Message sent to support")}catch(e){say("Could not send. Try again.")}$("ssend").disabled=false};
+let MY=[];
+function renderMy(){$("sml").innerHTML=MY.length?MY.map(v=>`<div class="nc${v.reply?" nw":""}"><small style="margin:0 0 4px">You \u2022 ${ago(v.ts)}</small><p>${esc(v.m)}</p>${v.reply?`<div style="margin-top:8px;padding:8px 10px;background:#ff5a5f14;border-radius:10px"><small style="margin:0 0 3px;color:var(--co);font-weight:600">Support reply \u2022 ${ago(v.rts||v.ts)}</small><p style="color:var(--tx)">${esc(v.reply)}</p></div>`:'<small>Waiting for reply</small>'}</div>`).join(""):'<div class="lbl" style="margin:0 16px 10px">Your messages and replies will show here.</div>'}
+async function sup(){if(!db){$("spl").innerHTML='<div class="lbl">Connect Firebase to see messages.</div>';return}
+ try{const q=await db.collection("support").orderBy("ts","desc").limit(20).get();let h="";q.forEach(d=>{const v=d.data();h+=`<div class="rr" style="display:block"><b style="display:block">${esc(v.name||"")} <span style="color:var(--mu);font-weight:400">${esc(v.sid||"")} \u2022 ${ago(v.ts)}</span></b><span style="color:var(--tx);display:block;margin:2px 0 8px">${esc(v.m||"")}</span><textarea id="rp_${d.id}" rows="2" maxlength="500" placeholder="Write a reply" style="margin-bottom:6px">${esc(v.reply||"")}</textarea><button class="pill" onclick="sendRp('${d.id}')" style="padding:8px 16px">${v.reply?"Update reply":"Send reply"}</button></div>`});$("spl").innerHTML=h||'<div class="lbl">No messages yet.</div>'}catch(e){$("spl").innerHTML='<div class="lbl">Could not load messages.</div>'}}
+window.sendRp=async id=>{const t=($("rp_"+id).value||"").trim();if(!t)return say("Write a reply first");try{await db.collection("support").doc(id).update({reply:t.slice(0,500),rts:Date.now()});say("Reply sent");sup()}catch(e){say("Could not send reply")}};
+// ---- My Account, Refer & Earn ----
+const REFER_ON=false; // Refer & Earn is switched off. Set to true to turn it on again.
+function drawAcc(){$("rfc").style.display=REFER_ON?"":"none";$("fqr").style.display=REFER_ON?"":"none";$("srw").style.display=REFER_ON?"":"none";$("an").textContent=S.name||"Player";$("av").textContent=(S.name||"P").charAt(0).toUpperCase();$("aid").textContent=S.sid||"-";$("rcode").textContent=S.sid||"-";$("rcnt").textContent=S.refCount||0;$("rfn").textContent=ST.refBonus;$("rrow").style.display=S.refBy?"none":"flex";$("rdone").style.display=S.refBy?"":"none"}
+async function copyTxt(t,ok){try{await navigator.clipboard.writeText(t);say(ok)}catch(e){say(t)}}
+$("cuid").onclick=()=>{if(S.sid)copyTxt(S.sid,"UID copied")};
+$("rsh").onclick=async()=>{if(!S.sid)return say("Log in first");const txt="Join me on I Love Colour Prediction. Use my code "+S.sid+" and we both get "+ST.refBonus+" tokens.\n"+location.origin+location.pathname+"?ref="+S.sid;
+ if(navigator.share){try{await navigator.share({text:txt})}catch(e){}return}copyTxt(txt,"Invite copied")};
+async function applyRef(code,quiet){if(!REFER_ON)return;const m=t=>{if(!quiet)say(t)};code=(code||"").trim().toUpperCase();
+ if(!db||!uid)return m("Log in first");if(S.refBy)return m("You already used a code");if(!code)return m("Enter a code");if(code==S.sid)return m("You cannot use your own code");
+ try{const q=await db.collection("users").where("sid","==",code).limit(1).get();if(q.empty)return m("Code not found");
+  const b=ST.refBonus,inc=firebase.firestore.FieldValue.increment;
+  await db.collection("users").doc(q.docs[0].id).update({tokens:inc(b),refCount:inc(1)});
+  S.refBy=code;S.tokens+=b;save();draw();m("+"+b+" tokens added")}catch(e){m("Could not apply the code")}}
+$("rap").onclick=()=>applyRef($("rin").value);
+$("hp").onclick=()=>show("game");$("lbk").onclick=()=>show("rank");
+// ---- Rewards ----
+const safeUrl=u=>/^https?:\/\//i.test(u||"")?u:"";
+const fmt=ts=>new Date(ts).toLocaleString("en-IN",{day:"numeric",month:"short",year:"numeric",hour:"numeric",minute:"2-digit"});
+let RW=[],MYR=[];
+const RWL={pending:"Pending",done:"Done",rejected:"Rejected"};
+const rwThumb=(img,t)=>safeUrl(img)?`<img src="${esc(safeUrl(img))}" alt="" loading="lazy" onerror="this.remove()">`:`<span>${esc((t||"?").charAt(0).toUpperCase())}</span>`;
+function renderRw(){
+ $("rwl").innerHTML=RW.length?RW.map(r=>{const m=MYR.find(x=>x.rid==r.id&&x.status!="rejected"),dis=!!m||S.banned;
+  return `<div class="rwk"><div class="rwki">${rwThumb(r.img,r.t)}</div><div class="rwkb"><span class="rwg">${esc(r.type)}</span><b>${esc(r.t)}</b><p>${esc(r.d||"")}</p></div><div class="rwkr"><strong>${r.cost}</strong><small>tokens</small><button class="pill" ${dis?"disabled":""} onclick="redeem('${r.id}')">${m?(m.status=="done"?"Owned":"Pending"):"Redeem"}</button></div></div>`}).join(""):'<div class="em"><i></i>No rewards yet.<br>Check back soon.</div>';
+ $("arl").innerHTML=RW.length?RW.map(r=>`<div class="rr"><span>${esc(r.t)} \u2022 ${esc(r.type)} \u2022 ${r.cost}</span><button onclick="rmRw('${r.id}')" style="color:var(--r);font-weight:600">Remove</button></div>`).join(""):'<div class="lbl">No rewards added.</div>'}
+function renderMyR(){
+ const dn=MYR.filter(x=>x.status=="done");
+ const chips=dn.map(x=>`<span class="rwchip">${safeUrl(x.img)?`<img src="${esc(safeUrl(x.img))}" alt="" onerror="this.remove()">`:"<i></i>"}${esc(x.t)}</span>`).join("");
+ $("pit").innerHTML=chips;$("myi").innerHTML=chips||'<div class="lbl">Rewards you get will show here.</div>';
+ $("rhl").innerHTML=MYR.length?MYR.map(x=>`<div class="nc"><div class="rwh"><b>${esc(x.t)}</b><span class="rws ${x.status}">${RWL[x.status]||x.status}</span></div><p>${esc(x.type)} \u2022 ${x.cost} tokens${x.status=="rejected"?" \u2022 tokens refunded":""}</p><small>Requested: ${fmt(x.ts)}</small>${x.dts?`<small style="margin-top:2px">${x.status=="done"?"Done":"Rejected"}: ${fmt(x.dts)}</small>`:""}</div>`).join(""):'<div class="lbl" style="margin:0 16px">No requests yet.</div>';
+ renderRw()}
+window.redeem=async id=>{const r=RW.find(x=>x.id==id);if(!r)return;if(!db||!uid)return say("Log in first");if(S.banned)return say("Your account is blocked");
+ if(MYR.some(x=>x.rid==id&&x.status!="rejected"))return say("You already requested this");
+ if(S.tokens<r.cost)return say("Not enough tokens");
+ if(!confirm("Redeem "+r.t+" for "+r.cost+" tokens?"))return;
+ S.tokens-=r.cost;save();draw();
+ try{await db.collection("redeems").add({uid,sid:S.sid,name:S.name,rid:id,t:r.t,type:r.type,img:r.img||"",cost:r.cost,status:"pending",ts:Date.now()});say("Request sent. Waiting for verification.")}
+ catch(e){S.tokens+=r.cost;save();draw();say("Could not send request")}};
+$("rwb").onclick=()=>show("rewards");
+// admin: rewards
+$("rwadd").onclick=async()=>{const t=$("rwt").value.trim(),c=Math.floor(+$("rwc").value),raw=$("rwi").value.trim();if(!db)return say("Firebase is not connected");if(!t)return say("Write a title");if(!(c>0))return say("Enter the token cost");if(raw&&!safeUrl(raw))return say("Image link must start with https://");
+ try{await db.collection("rewards").add({t:t.slice(0,40),d:$("rwd").value.trim().slice(0,160),img:raw,type:$("rwy").value,cost:Math.min(c,10000000),ts:Date.now()});$("rwt").value=$("rwd").value=$("rwi").value=$("rwc").value="";say("Reward added")}catch(e){say("Could not add. Check Firebase rules.")}};
+window.rmRw=async id=>{try{await db.collection("rewards").doc(id).delete()}catch(e){say("Could not remove")}};
+async function rq(){if(!db){$("rql").innerHTML='<div class="lbl">Connect Firebase to see requests.</div>';return}
+ try{const q=await db.collection("redeems").orderBy("ts","desc").limit(30).get();let h="";
+  q.forEach(d=>{const v=d.data(),id=d.id;h+=`<div class="rr" style="display:block"><b style="display:block">${esc(v.name||"")} <span style="color:var(--mu);font-weight:400">${esc(v.sid||"")}</span></b><span style="color:var(--tx);display:block;margin:2px 0">${esc(v.t||"")} (${esc(v.type||"")}) \u2022 ${v.cost} tokens</span><small style="color:var(--mu);display:block;margin-bottom:6px">Requested: ${fmt(v.ts)}${v.dts?` \u2022 ${v.status=="done"?"Done":"Rejected"}: ${fmt(v.dts)}`:""}</small>${v.status=="pending"?`<button class="pill" onclick="rqAct('${id}','done')" style="padding:8px 16px">Verify</button> <button class="pill ol" onclick="rqAct('${id}','rejected')" style="padding:8px 16px">Reject &amp; refund</button>`:`<span class="rws ${v.status}">${RWL[v.status]||v.status}</span>`}</div>`});
+  $("rql").innerHTML=h||'<div class="lbl">No requests yet.</div>'}catch(e){$("rql").innerHTML='<div class="lbl">Could not load requests.</div>'}}
+window.rqAct=async(id,st)=>{if(st=="rejected"&&!confirm("Reject this request and refund the tokens?"))return;const ref=db.collection("redeems").doc(id);
+ try{await db.runTransaction(async t=>{const d=await t.get(ref),v=d.data();if(!v||v.status!="pending")throw"handled";t.update(ref,{status:st,dts:Date.now()});if(st=="rejected")t.update(db.collection("users").doc(v.uid),{tokens:firebase.firestore.FieldValue.increment(v.cost)})});say(st=="done"?"Verified. Reward given.":"Rejected. Tokens refunded.")}
+ catch(e){say(e=="handled"?"Already handled":"Could not update")}rq()};
+$("dcok").onclick=()=>$("dc").classList.add("off");
+["apv","dpv","pvb"].forEach(i=>$(i).onclick=()=>$("pv").classList.remove("off"));$("pvx").onclick=()=>$("pv").classList.add("off");
+// ---- Pages + bottom bar ----
+const PN={home:"ph",games:"pg",game:"p0",rank:"p1",admin:"p2",notif:"p3",support:"p4",account:"p5",rewards:"p6"},TB={home:"home",games:"games",game:"games",support:"support",account:"account",rewards:"account"};let PNL="home";
+function show(n){PNL=n;for(const k in PN)$(PN[k]).classList.toggle("on",k==n);$("back").style.visibility=TB[n]&&n!="game"&&n!="rewards"?"hidden":"visible";
+ $$("#nv button").forEach(b=>b.classList.toggle("on",b.dataset.n==TB[n]));
+ if(n=="rank")board();if(n=="admin"){users();sup();rq()}if(n=="notif"){renderNt();markSeen()}window.scrollTo(0,0)}
+$$("#nv button").forEach(b=>b.onclick=()=>show(b.dataset.n));$("bellb").onclick=()=>show("notif");
+$("back").onclick=()=>show(PNL=="game"?"games":PNL=="rewards"?"account":"home");$("rk").onclick=()=>show("rank");$("ad").onclick=()=>show("admin");
 
 function confetti(on){const box=$("res").firstElementChild;box.querySelectorAll(".cf").forEach(e=>e.remove());if(!on)return;const P=["#17b169","#b659fe","#fd565c","#ffa94d","#6da7f4"];
  for(let i=0;i<28;i++){const e=document.createElement("i"),a=Math.random()*6.28,d=90+Math.random()*90;e.className="cf";e.style.cssText=`--x:${Math.cos(a)*d}px;--y:${Math.sin(a)*d}px;background:${P[i%5]};animation-delay:${Math.random()*.15}s`;box.appendChild(e)}}
@@ -359,14 +576,23 @@ setInterval(()=>{const t=Date.now(),k=cur(),l=dur-Math.floor((t/1000)%dur);
 
 async function board(){if(!db){$("lbn").textContent="Only you are shown right now. Connect Firebase to see all players.";$("lb").innerHTML=`<tr><td>1. ${S.name} (you)</td><td style="text-align:right">${Math.floor(S.tokens)}</td></tr>`;return}
  const q=await db.collection("users").orderBy("tokens","desc").limit(10).get();let h="",i=1;q.forEach(d=>h+=`<tr><td style="text-align:left">${i++}. ${d.data().name}</td><td style="text-align:right">${Math.floor(d.data().tokens)}</td></tr>`);$("lb").innerHTML=h}
-async function users(){renderBl();$("gim").value=GA.img||"";$("gco").value=GA.c||"coral";$("sd").value=ST.daily;$("sm").value=ST.minBet;$("sp").checked=ST.paused;
+async function users(){renderBl();$("gim").value=GA.img||"";$("gco").value=GA.c||"coral";$("sd").value=ST.daily;$("sm").value=ST.minBet;$("srb").value=ST.refBonus;$("sp").checked=ST.paused;
  if(!db){$("un").textContent="Only your account is shown right now.";$("ul").innerHTML=`<tr><td>${S.name}</td><td>${Math.floor(S.tokens)}</td><td><button onclick="ban('me')">${S.banned?"Unblock":"Block"}</button> <button onclick="reset('me')">Reset</button></td></tr>`;return}
- const q=await db.collection("users").limit(50).get();$("un").textContent=q.size+" players";let h="";q.forEach(d=>{const u=d.data();h+=`<tr><td>${u.name}</td><td>${Math.floor(u.tokens)}</td><td><button onclick="ban('${d.id}',${!u.banned})">${u.banned?"Unblock":"Block"}</button> <button onclick="reset('${d.id}')">Reset</button></td></tr>`});$("ul").innerHTML=h}
+ await usersList()}
+async function usersList(){const f=($("usq").value||"").trim();let q;
+ try{if(f){q=await db.collection("users").where("sid","==",f.toUpperCase()).limit(20).get();
+   if(q.empty)q=await db.collection("users").where("name",">=",f).where("name","<=",f+"\uf8ff").limit(20).get()}
+  else q=await db.collection("users").limit(50).get()}catch(e){$("un").textContent="Could not load players.";return}
+ $("un").textContent=q.size+(f?" found":" players");let h="";
+ q.forEach(d=>{const u=d.data(),id=d.id;h+=`<tr><td style="text-align:left;padding-left:8px">${esc(u.name)}<br><small style="color:var(--mu)">${esc(u.sid||"")}</small></td><td><input type="number" min="0" id="tk_${id}" value="${Math.floor(u.tokens||0)}" style="width:78px;padding:6px"> <button onclick="setTk('${id}')" style="color:var(--co);font-weight:600">Set</button></td><td><button onclick="ban('${id}',${!u.banned})" style="font-weight:600;color:${u.banned?"var(--g)":"var(--r)"}">${u.banned?"Unblock":"Block"}</button></td></tr>`});
+ $("ul").innerHTML=h||'<tr><td class="em" style="border:0">No player found</td></tr>'}
+window.setTk=async id=>{const v=Math.max(0,Math.floor(+$("tk_"+id).value));if(!isFinite(v))return say("Enter a number");try{await db.collection("users").doc(id).update({tokens:v});say("Tokens updated")}catch(e){say("Could not update")}usersList()};
+$("usb").onclick=users;$("usq").addEventListener("keydown",e=>{if(e.key=="Enter")users()});
 window.ban=async(id,v)=>{if(id=="me"||id==uid){S.banned=!S.banned;save();draw();users();return}await db.collection("users").doc(id).update({banned:v});users()};
 window.reset=async id=>{if(id=="me"||id==uid){S.tokens=1000;save();draw();users();return}await db.collection("users").doc(id).update({tokens:1000});users()};
-$("ss").onclick=()=>{ST.daily=Math.max(0,Math.min(1000,+$("sd").value||0));ST.minBet=Math.max(1,+$("sm").value||10);ST.paused=$("sp").checked;saveST();draw();say("Settings saved")};
+$("ss").onclick=()=>{ST.daily=Math.max(0,Math.min(1000,+$("sd").value||0));ST.minBet=Math.max(1,+$("sm").value||10);ST.paused=$("sp").checked;ST.refBonus=Math.max(0,Math.min(100000,Math.floor(+$("srb").value)||0));saveST();draw();say("Settings saved")};
 const BC={coral:"linear-gradient(135deg,#ff5a5f,#ff9494)",green:"linear-gradient(135deg,#17b169,#4ad98f)",violet:"linear-gradient(135deg,#8e44ff,#c48bff)",blue:"linear-gradient(135deg,#3b82f6,#7fb2ff)"};
-const DEF=[{t:"Welcome to Colour Prediction",s:"Play with free tokens. No real money.",c:"coral"}];
+const DEF=[{t:"Welcome to Colour Prediction",s:"Play with tokens only. No real money is involved.",c:"coral"}];
 let BN=[];try{BN=JSON.parse(localStorage.getItem("rp3b")||"[]")}catch(e){}
 const esc=t=>String(t).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function renderBn(){const L=BN.length?BN:DEF;$("bt").innerHTML=L.map(b=>`<div class="bi" style="background:${BC[b.c]||BC.coral}">${b.img?`<div class="bimg" style="background-image:url(&quot;${esc(encodeURI(b.img))}&quot;)"></div>`:""}<div class="btx"><h3>${esc(b.t||"")}</h3><p>${esc(b.s||"")}</p></div></div>`).join("");
@@ -381,8 +607,8 @@ $("badd").onclick=()=>{const t=$("bti").value.trim(),im=$("bim").value.trim();if
  BN.push({t:t.slice(0,60),s:$("bsu").value.trim().slice(0,100),img:im,c:$("bco").value});$("bti").value=$("bsu").value=$("bim").value="";saveBN();say("Banner added")};
 let GA={img:"",c:"coral"};try{GA=Object.assign(GA,JSON.parse(localStorage.getItem("rp3g")||"{}"))}catch(e){}
 function renderGm(){const art=GA.img?`<div class="bimg" style="background-image:url(&quot;${esc(encodeURI(GA.img))}&quot;)"></div>`:'<div class="gart"><i class="ba G"></i><i class="ba z5"></i><i class="ba R"></i></div>';
- $("gl").innerHTML=`<button class="gq" id="g1"><div class="gsq" style="background:${BC[GA.c]||BC.coral}">${art}</div><div class="gn"><b>Colour Prediction</b><span>30 sec, 1, 3 and 5 min rounds</span></div><span class="pill">Play</span></button><div class="gq soon"><div class="gsq"><span>More games<br>coming soon</span></div></div>`;
- $("g1").onclick=()=>show("game")}
+ $("gl").innerHTML=`<button class="gq g1"><div class="gsq" style="background:${BC[GA.c]||BC.coral}">${art}</div><div class="gn"><b>Colour Prediction</b><span>30 sec, 1, 3 and 5 min rounds</span></div><span class="pill">Play</span></button><div class="gq soon"><div class="gsq"><span>More games<br>coming soon</span></div></div>`;
+ $("gl2").innerHTML=$("gl").innerHTML;$$(".g1").forEach(b=>b.onclick=()=>show("game"))}
 function saveGA(){try{localStorage.setItem("rp3g",JSON.stringify(GA))}catch(e){}if(db)db.collection("config").doc("banners").set({list:BN,game:GA}).catch(()=>{});renderGm()}
 $("gsave").onclick=()=>{const im=$("gim").value.trim();if(im&&!/^https?:\/\//i.test(im))return say("Picture address must start with http");GA={img:im,c:$("gco").value};saveGA();say("Game banner saved")};
 $("gclr").onclick=()=>{$("gim").value="";GA.img="";saveGA();say("Picture removed")};
@@ -403,7 +629,7 @@ $("afg").onclick=async()=>{const em=$("aem").value.trim();if(!em)return aErr("Ty
 $("lo").onclick=async()=>{try{await firebase.auth().signOut()}catch(e){}};
 const ld=u=>new Promise(r=>{const s=document.createElement("script");s.src=u;s.onload=r;document.head.appendChild(s)});
 let unsubs=[],pendingName="";
-function wipe(){Object.assign(S,{name:"",tokens:1000,last:0,banned:false,log:[]});bet=null;try{localStorage.removeItem("rp3")}catch(e){}}
+function wipe(){MY=[];MYR=[];Object.assign(S,{name:"",tokens:1000,last:0,banned:false,log:[],sid:"",refBy:"",refCount:0});bet=null;try{localStorage.removeItem("rp3")}catch(e){}}
 async function initFB(){const b="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.12.2/";for(const f of["app","auth","firestore"])await ld(b+`firebase-${f}-compat.min.js`);
  firebase.initializeApp(CFG);db=firebase.firestore();
  firebase.auth().onAuthStateChanged(async u=>{unsubs.forEach(f=>f());unsubs=[];wipe();
@@ -411,12 +637,18 @@ async function initFB(){const b="https://cdnjs.cloudflare.com/ajax/libs/firebase
   uid=u.uid;
   try{const d=await db.collection("users").doc(uid).get();if(d.exists)Object.assign(S,d.data());
    if(!S.name)S.name=(pendingName||u.displayName||(u.email||"Player").split("@")[0]).slice(0,14);
+   S.sid=uid.slice(0,8).toUpperCase();
    const c=await db.collection("config").doc("main").get();if(c.exists)Object.assign(ST,c.data());
    unsubs.push(db.collection("config").doc("main").onSnapshot(s=>{if(s.exists){Object.assign(ST,s.data());draw()}},()=>{}),
-    db.collection("users").doc(uid).onSnapshot(s=>{if(s.exists){S.banned=s.data().banned;S.tokens=s.data().tokens;draw()}},()=>{}));
+    db.collection("users").doc(uid).onSnapshot(s=>{if(s.exists){S.banned=s.data().banned;S.tokens=s.data().tokens;S.refCount=s.data().refCount||0;draw()}},()=>{}),
+    db.collection("support").where("uid","==",uid).onSnapshot(s=>{MY=s.docs.map(d=>Object.assign({id:d.id},d.data())).sort((a,b)=>b.ts-a.ts).slice(0,20);renderMy()},()=>{}),
+    db.collection("rewards").orderBy("ts","desc").limit(50).onSnapshot(s=>{RW=s.docs.map(d=>Object.assign({id:d.id},d.data()));renderRw()},()=>{}),
+    db.collection("redeems").where("uid","==",uid).onSnapshot(s=>{if(MYR.length)s.docChanges().forEach(c=>{if(c.type=="modified"){const v=c.doc.data();if(v.status=="done")say(v.t+" added to your items");if(v.status=="rejected")say("Request rejected. Tokens refunded")}});MYR=s.docs.map(d=>Object.assign({id:d.id},d.data())).sort((a,b)=>b.ts-a.ts).slice(0,50);renderMyR()},()=>{}),
+    db.collection("notifs").orderBy("ts","desc").limit(30).onSnapshot(s=>{NT=s.docs.map(d=>Object.assign({id:d.id},d.data()));saveNT();renderNt()},()=>{}));
    const bd=await db.collection("config").doc("banners").get();if(bd.exists){const v=bd.data();BN=v.list||[];if(v.game)GA=Object.assign(GA,v.game);try{localStorage.setItem("rp3b",JSON.stringify(BN));localStorage.setItem("rp3g",JSON.stringify(GA))}catch(e){}renderBn();renderGm()}
   }catch(e){say("Could not load your data. Check your internet.")}
+  try{if(REFER_ON){const pr=localStorage.getItem("rp3r");if(pr&&!S.refBy)await applyRef(pr,1)}localStorage.removeItem("rp3r")}catch(e){}
   pendingName="";$("lo").style.display="";save();draw();renderAll();$("au").classList.remove("on","busy");$("apw").value="";show("home");more()})}
 if(location.hash=="#admin"&&ADMIN_CODE&&prompt("Admin code:")===ADMIN_CODE){adm=true;$("ad").style.display=""}
-last=cur();renderBn();renderGm();renderAll();show("home");save();if(!CFG.apiKey)$("au").classList.remove("on","busy");else initFB().catch(()=>{$("au").classList.remove("busy");aErr("Could not connect. Check your internet and refresh.")});
+last=cur();renderBn();renderGm();renderNt();renderMy();renderMyR();renderAll();show("home");save();if(!CFG.apiKey)$("au").classList.remove("on","busy");else initFB().catch(()=>{$("au").classList.remove("busy");aErr("Could not connect. Check your internet and refresh.")});
 </script></body></html>
