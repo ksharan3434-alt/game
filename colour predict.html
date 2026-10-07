@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="hi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rang Predict</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07090f;--s1:#0f131d;--s2:#171c29;--bd:#232a3b;--tx:#f2f5fb;--mu:#7d89a6;--ac:#c6f432;--acx:#0b1000;--gr:#22c55e;--vi:#a855f7;--rd:#f43f5e;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#eef1f7;--s1:#fff;--s2:#f3f5fa;--bd:#dde2ee;--tx:#0b1220;--mu:#5f6b85;--ac:#4d7c0f;--acx:#fff}}
+:root[data-theme="light"]{--bg:#eef1f7;--s1:#fff;--s2:#f3f5fa;--bd:#dde2ee;--tx:#0b1220;--mu:#5f6b85;--ac:#4d7c0f;--acx:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font-family:Sora,system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
+.w{max-width:460px;margin:auto;padding:16px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.5px}
+.mark{width:34px;height:34px;border-radius:10px;background:conic-gradient(var(--gr),var(--vi),var(--rd),var(--gr))}
+.chip{background:var(--s1);border:1px solid var(--bd);border-radius:99px;padding:7px 12px;font-size:12px;color:var(--mu)}
+.hero{background:var(--s1);border:1px solid var(--bd);border-radius:22px;padding:20px;margin-bottom:14px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;right:-60px;top:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(var(--ac),transparent 70%);opacity:.18}
+.lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu)}
+.big{font-size:44px;font-weight:800;letter-spacing:-1.5px;margin:4px 0 14px}
+.seg{display:flex;background:var(--s1);border:1px solid var(--bd);border-radius:14px;padding:4px;margin-bottom:14px}
+.seg button{flex:1;background:transparent;color:var(--mu);padding:10px 0;border-radius:10px}.seg .on{background:var(--s2);color:var(--tx)}
+button{font:inherit;font-weight:600;font-size:14px;border:0;border-radius:12px;cursor:pointer;color:var(--tx);background:var(--s2);padding:11px 14px;transition:transform .12s}
+button:active{transform:scale(.96)}button:disabled{opacity:.35;cursor:not-allowed}
+.cta{width:100%;background:var(--ac);color:var(--acx);padding:16px;font-size:15px;font-weight:800;border-radius:14px}
+.pill{background:var(--ac);color:var(--acx);border-radius:99px;padding:9px 16px;font-size:13px;font-weight:800}
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:22px;padding:18px;margin-bottom:14px}
+.r{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.rid{font-size:20px;font-weight:800}.ring{position:relative;width:84px;height:84px}.ring svg{transform:rotate(-90deg)}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font-size:24px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0 12px}
+.tile{padding:18px 4px;border-radius:16px;color:#fff;font-weight:800;font-size:15px;line-height:1.3}.tile small{display:block;font-weight:600;opacity:.85;font-size:12px}
+.tile[data-k=G]{background:linear-gradient(160deg,#22c55e,#15803d)}.tile[data-k=V]{background:linear-gradient(160deg,#a855f7,#6b21a8)}.tile[data-k=R]{background:linear-gradient(160deg,#fb7185,#be123c)}
+.sel{box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--ac)}
+.nums{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin-bottom:16px}.nums button{padding:0;aspect-ratio:1;border-radius:50%;color:#fff;font-weight:800;font-size:13px}
+.amt{display:flex;gap:8px;margin-bottom:10px}.amt input{flex:1;min-width:0;text-align:center;font-weight:800;font-size:18px}
+input{font:inherit;padding:11px;border-radius:12px;border:1px solid var(--bd);background:var(--s2);color:var(--tx)}
+.qs{display:flex;gap:6px;margin-bottom:12px}.qs button{flex:1;padding:9px 0;font-size:12px}
+.strip{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}.ball{flex:0 0 32px;height:32px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:10px 4px;border-bottom:1px solid var(--bd);text-align:left}th{font-size:11px;color:var(--mu);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+.ok{color:var(--gr)}.no{color:var(--rd)}.p{display:none}.p.on{display:block}.row{display:flex;gap:6px}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:var(--tx);color:var(--bg);padding:12px 18px;border-radius:14px;font-size:13px;font-weight:600;opacity:0;transition:.25s;pointer-events:none;max-width:90%;z-index:5}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+#res{position:fixed;inset:0;background:#000a;display:none;place-items:center;z-index:9}#res.on{display:grid}
+#res div{background:var(--s1);border:1px solid var(--bd);border-radius:26px;padding:28px 40px;text-align:center;animation:pop .4s cubic-bezier(.2,1.4,.4,1)}
+#rb{width:96px;height:96px;margin:0 auto 14px;font-size:44px;display:grid;place-items:center;border-radius:50%;color:#fff;font-weight:800}
+@keyframes pop{from{transform:scale(.5);opacity:0}}
+.warn{background:#f43f5e22;border:1px solid var(--rd);color:var(--rd);border-radius:14px;padding:12px;margin-bottom:14px;font-size:13px;display:none}
+</style></head><body><div class="w">
+<div class="top"><div class="logo"><div class="mark"></div>Rang Predict</div><span class="chip">Free • no real money</span></div>
+<div class="warn" id="ban">Aapka account admin ne band kiya hai.</div><div class="warn" id="pause">⏸ Game abhi pause hai.</div>
+<div class="hero"><div class="lbl">Aapke tokens</div><div class="big" id="bal">0</div>
+<div class="r"><span class="chip" id="who"></span><button class="pill" id="daily">Daily</button></div></div>
+<div class="seg" id="nav"></div>
+
+<div class="p on" id="p0">
+<div class="card"><div class="r"><div><div class="lbl">Round</div><div class="rid" id="rid"></div><div class="lbl" style="margin-top:6px">Last 5s mein bet band</div></div>
+<div class="ring"><svg width="84" height="84"><circle cx="42" cy="42" r="37" fill="none" stroke="var(--bd)" stroke-width="7"/><circle id="arc" cx="42" cy="42" r="37" fill="none" stroke="var(--ac)" stroke-width="7" stroke-linecap="round" stroke-dasharray="232"/></svg><b id="tm">30</b></div></div>
+<div class="tiles"><button class="tile" data-k="G">Green<small>2x</small></button><button class="tile" data-k="V">Violet<small>4.5x</small></button><button class="tile" data-k="R">Red<small>2x</small></button></div>
+<div class="lbl" style="margin-bottom:8px">Ya number chuno • 9x</div><div class="nums" id="nums"></div>
+<div class="amt"><button id="mn">−</button><input id="amt" type="number" value="50"><button id="pl">+</button></div>
+<div class="qs"><button data-a="10">10</button><button data-a="50">50</button><button data-a="100">100</button><button data-a="500">500</button><button data-a="all">MAX</button></div>
+<button class="cta" id="go">Bet lagao</button></div>
+<div class="card"><div class="lbl" style="margin-bottom:10px">Last results</div><div class="strip" id="hist"><span class="lbl">Pehla round khatam hone ka wait...</span></div></div></div>
+
+<div class="p" id="p1"><div class="card"><div class="lbl" style="margin-bottom:6px">Meri bets</div><table id="log"></table></div></div>
+<div class="p" id="p2"><div class="card"><div class="lbl" style="margin-bottom:6px">Leaderboard</div><div class="lbl" id="lbn"></div><table id="lb"></table></div></div>
+<div class="p" id="p3"><div class="card"><div class="lbl" style="margin-bottom:10px">Admin settings</div>
+<div class="lbl">Daily reward (0 = band)</div><input id="sd" type="number" min="0" max="1000" style="width:100%;margin:6px 0 10px"><div class="lbl">Min bet</div><input id="sm" type="number" min="1" style="width:100%;margin:6px 0 10px">
+<label class="row" style="margin-bottom:12px;font-size:13px;align-items:center"><input type="checkbox" id="sp"> Game pause karo</label><button class="cta" id="ss">Save</button></div>
+<div class="card"><div class="lbl" style="margin-bottom:6px">Users</div><div class="lbl" id="un"></div><table id="ul"></table></div></div>
+</div>
+<div id="toast"></div><div id="res"><div><div id="rb"></div><div class="rid" id="rt"></div><div class="lbl" id="rs" style="margin-top:6px"></div></div></div>
+<script>
+// Firebase config blank hai. Apna config daalo (Firestore + Anonymous Auth enable karo).
+const CFG={apiKey:"",authDomain:"",projectId:"",appId:""};
+// Admin code set karo, phir URL ke end mein #admin lagao. Client-side hai (demo); asli security ke liye Firestore rules lagao.
+const ADMIN_CODE="";
+const $=i=>document.getElementById(i),rnd=n=>Math.floor(Math.random()*n);
+const S={name:"",tokens:1000,last:0,banned:false,log:[]},ST={daily:100,minBet:10,paused:false};let db=null,uid=null,adm=false,tt;
+try{Object.assign(S,JSON.parse(localStorage.getItem("rp3")||"{}"));Object.assign(ST,JSON.parse(localStorage.getItem("rp3s")||"{}"))}catch(e){}
+if(!S.name)S.name=(prompt("Apna naam likho:")||"Player").slice(0,14);
+const say=t=>{$("toast").textContent=t;$("toast").classList.add("on");clearTimeout(tt);tt=setTimeout(()=>$("toast").classList.remove("on"),2200)};
+const save=()=>{try{localStorage.setItem("rp3",JSON.stringify(S))}catch(e){}if(db&&uid)db.collection("users").doc(uid).set({name:S.name,tokens:S.tokens,banned:S.banned,last:S.last}).catch(()=>{})};
+const saveST=()=>{try{localStorage.setItem("rp3s",JSON.stringify(ST))}catch(e){}if(db)db.collection("config").doc("main").set(ST).catch(()=>{})};
+const col=n=>n==0||n==5?"V":n%2?"G":"R",cc={G:"#22c55e",V:"#a855f7",R:"#f43f5e"};let pick=null,bet=null,last=0,H=[];
+function draw(){$("bal").textContent=Math.floor(S.tokens).toLocaleString("en-IN");$("who").textContent="👤 "+S.name;
+ $("ban").style.display=S.banned?"block":"none";$("pause").style.display=ST.paused?"block":"none";
+ $("daily").style.display=ST.daily>0?"":"none";$("daily").textContent="Daily +"+ST.daily;
+ const a=Math.floor(+$("amt").value)||0,m=pick==null?0:/\d/.test(pick)?9:pick=="V"?4.5:2;
+ $("go").textContent=bet?"Bet lag chuki hai ✓":pick==null?"Pehle color ya number chuno":m?`Bet ${a} • jeet par ${Math.floor(a*m)}`:"Bet lagao";
+ $("log").innerHTML="<tr><th>Round</th><th>Pick</th><th>Result</th><th style='text-align:right'>Tokens</th></tr>"+S.log.slice(0,15).map(l=>`<tr><td>#${l.r}</td><td>${l.p}</td><td>${l.n}</td><td class="${l.d>=0?"ok":"no"}" style="text-align:right">${l.d>=0?"+":""}${l.d}</td></tr>`).join("")}
+const T=[["Play"],["Bets"],["Rank"]];
+function nav(){const t=adm?T.concat([["Admin"]]):T;$("nav").innerHTML=t.map((x,i)=>`<button data-t="${i}">${x[0]}</button>`).join("");document.querySelectorAll("[data-t]").forEach(b=>b.onclick=()=>tab(+b.dataset.t))}
+function tab(i){document.querySelectorAll(".p").forEach((p,j)=>p.classList.toggle("on",i==j));document.querySelectorAll("[data-t]").forEach(b=>b.classList.toggle("on",b.dataset.t==i));if(i==2)board();if(i==3)users()}
+$("nums").innerHTML=[...Array(10).keys()].map(n=>`<button style="background:${cc[col(n)]}" data-k="${n}">${n}</button>`).join("");
+document.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>{pick=b.dataset.k;document.querySelectorAll("[data-k]").forEach(x=>x.classList.toggle("sel",x===b));draw()});
+document.querySelectorAll("[data-a]").forEach(b=>b.onclick=()=>{$("amt").value=b.dataset.a=="all"?Math.floor(S.tokens):b.dataset.a;draw()});
+$("mn").onclick=()=>{$("amt").value=Math.max(ST.minBet,Math.floor($("amt").value/2));draw()};$("pl").onclick=()=>{$("amt").value=Math.min(Math.floor(S.tokens),$("amt").value*2);draw()};$("amt").oninput=draw;
+$("go").onclick=()=>{const a=Math.floor(+$("amt").value);if(S.banned||ST.paused)return say("Abhi bet nahi lag sakti");if(pick==null)return say("Pehle color ya number chuno");if(bet)return say("Is round ki bet lag chuki hai");
+ if(a<ST.minBet)return say("Min bet "+ST.minBet);if(a>S.tokens)return say("Tokens kam hain");bet={p:pick,a};S.tokens-=a;save();draw();say(`Bet lagi: ${pick} • ${a}`)};
+$("daily").onclick=()=>{if(S.banned)return;if(Date.now()-S.last<864e5)return say("Daily reward kal milega");S.last=Date.now();S.tokens+=ST.daily;save();draw();say("+"+ST.daily+" tokens mile")};
+function reveal(n,w,a){$("rb").textContent=n;$("rb").style.background=cc[col(n)];$("rt").textContent=a?(w?`+${w} jeet gaye 🎉`:`−${a} haar gaye`):"Is round mein bet nahi thi";$("rt").className="rid "+(a?(w?"ok":"no"):"");$("rs").textContent=col(n)=="G"?"Green":col(n)=="V"?"Violet":"Red";$("res").classList.add("on");setTimeout(()=>$("res").classList.remove("on"),2200)}
+setInterval(()=>{const t=Date.now(),r=Math.floor(t/3e4),l=30-Math.floor((t/1e3)%30);$("rid").textContent="#"+r;$("tm").textContent=l;$("arc").setAttribute("stroke-dashoffset",232*(1-l/30));$("go").disabled=l<=5||ST.paused||S.banned;
+ if(last&&r!==last){const n=rnd(10);H.unshift(n);H=H.slice(0,20);$("hist").innerHTML=H.map(n=>`<div class="ball" style="background:${cc[col(n)]}">${n}</div>`).join("");
+  let w=0,a=0;if(bet){a=bet.a;const c=col(n);w=bet.p==String(n)?a*9:bet.p==c?Math.floor(a*(c=="V"?4.5:2)):0;S.tokens+=w;S.log.unshift({r:last,p:bet.p,n,d:Math.floor(w-a)});S.log=S.log.slice(0,30);bet=null;save()}
+  reveal(n,w,a);draw()}last=r},500);
+async function board(){if(!db){$("lbn").textContent="Local mode: Firebase config daalo to global ranking chalegi.";$("lb").innerHTML=`<tr><td>1. ${S.name} (you)</td><td style="text-align:right">${Math.floor(S.tokens)}</td></tr>`;return}
+ const q=await db.collection("users").orderBy("tokens","desc").limit(10).get();let h="",i=1;q.forEach(d=>h+=`<tr><td>${i++}. ${d.data().name}</td><td style="text-align:right">${Math.floor(d.data().tokens)}</td></tr>`);$("lb").innerHTML=h}
+async function users(){$("sd").value=ST.daily;$("sm").value=ST.minBet;$("sp").checked=ST.paused;
+ if(!db){$("un").textContent="Local mode: sirf aapka account dikh raha hai.";$("ul").innerHTML=`<tr><td>${S.name}</td><td>${Math.floor(S.tokens)}</td><td class="row"><button onclick="ban('me')">${S.banned?"Unban":"Ban"}</button><button onclick="reset('me')">Reset</button></td></tr>`;return}
+ const q=await db.collection("users").limit(50).get();$("un").textContent=q.size+" users";let h="";q.forEach(d=>{const u=d.data();h+=`<tr><td>${u.name}</td><td>${Math.floor(u.tokens)}</td><td class="row"><button onclick="ban('${d.id}',${!u.banned})">${u.banned?"Unban":"Ban"}</button><button onclick="reset('${d.id}')">Reset</button></td></tr>`});$("ul").innerHTML=h}
+window.ban=async(id,v)=>{if(id=="me"||id==uid){S.banned=!S.banned;save();draw();users();return}await db.collection("users").doc(id).update({banned:v});users()};
+window.reset=async id=>{if(id=="me"||id==uid){S.tokens=1000;save();draw();users();return}await db.collection("users").doc(id).update({tokens:1000});users()};
+$("ss").onclick=()=>{ST.daily=Math.max(0,Math.min(1000,+$("sd").value||0));ST.minBet=Math.max(1,+$("sm").value||10);ST.paused=$("sp").checked;saveST();draw();say("Settings save ho gayi")};
+const ld=u=>new Promise(r=>{const s=document.createElement("script");s.src=u;s.onload=r;document.head.appendChild(s)});
+async function initFB(){const b="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.12.2/";for(const f of["app","auth","firestore"])await ld(b+`firebase-${f}-compat.min.js`);
+ firebase.initializeApp(CFG);uid=(await firebase.auth().signInAnonymously()).user.uid;db=firebase.firestore();
+ const d=await db.collection("users").doc(uid).get();if(d.exists)Object.assign(S,d.data());const c=await db.collection("config").doc("main").get();if(c.exists)Object.assign(ST,c.data());
+ db.collection("config").doc("main").onSnapshot(s=>{if(s.exists){Object.assign(ST,s.data());draw()}});
+ db.collection("users").doc(uid).onSnapshot(s=>{if(s.exists){S.banned=s.data().banned;S.tokens=s.data().tokens;draw()}});save();draw()}
+if(location.hash=="#admin"&&ADMIN_CODE&&prompt("Admin code:")===ADMIN_CODE)adm=true;
+nav();tab(0);save();draw();if(CFG.apiKey)initFB();
+</script></body></html>
