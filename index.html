@@ -205,8 +205,6 @@ textarea{font:inherit;padding:10px;border-radius:10px;border:1px solid var(--bd)
 .card h3{font-size:16px;margin-bottom:4px}.card p{font-size:13px;color:#4a5068;line-height:1.4}
 
 @keyframes rpIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.p.on{animation:rpIn .28s ease both}
-@media (prefers-reduced-motion:reduce){.p.on{animation:none}}
 .rwk{display:flex;align-items:stretch;background:#fff;border-radius:16px;margin:0 14px 12px;box-shadow:0 2px 10px #0000000f;overflow:hidden}
 .rwki{width:84px;flex:none;background:linear-gradient(135deg,#ff5a5f,#ff9494);display:grid;place-items:center;color:#fff;font-size:28px;font-weight:800;overflow:hidden}
 .rwki img{width:100%;height:100%;object-fit:cover}
@@ -234,8 +232,8 @@ textarea{font:inherit;padding:10px;border-radius:10px;border:1px solid var(--bd)
 .nrm{margin:8px 16px 0;font-size:12px;color:var(--mu);text-align:center}
 .aun{font-size:12px;color:var(--mu);text-align:center;margin-top:12px;line-height:1.5}
 .aun .lnk{display:inline;padding:0;font-size:12px;font-weight:600}
-#pv{position:fixed;inset:0;z-index:50;background:#1d2233ea;display:grid;place-items:center;padding:14px}
-#pv.off{display:none}
+#pvo{position:fixed;inset:0;z-index:50;background:#1d2233ea;display:grid;place-items:center;padding:14px}
+#pvo.off{display:none}
 .pvb{background:#fff;border-radius:20px;width:100%;max-width:440px;max-height:92vh;display:flex;flex-direction:column;overflow:hidden;animation:rpIn .3s ease both}
 .pvh{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--bd);font-size:17px}
 .pvh .pill{padding:8px 16px;font-size:13px}
@@ -243,6 +241,11 @@ textarea{font:inherit;padding:10px;border-radius:10px;border:1px solid var(--bd)
 .pvt h3{color:var(--tx);font-size:15px;margin:18px 0 4px}.pvt ul{padding-left:18px;margin:4px 0}.pvt li{margin:3px 0}
 .pvt .nm{background:#ff5a5f14;border-left:4px solid var(--co);padding:10px 12px;border-radius:8px;color:var(--tx);font-weight:600;margin:12px 0 4px}
 .pvt small{color:var(--mu)}
+.hd{gap:8px}
+.hd .lg{flex:1;min-width:0;font-size:clamp(15px,4.8vw,19px)}
+.hd>div{flex:none;align-items:center}
+.ic{margin-left:6px;padding:0 11px}
+.ic.bell{padding:0}
 </style></head><body><div class="w">
 <div class="hd"><button class="bk" id="back" aria-label="Back">‹</button><b class="lg">I <svg class="ht" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 3 4.5 6.6 4.5c2 0 3.7 1.1 5.4 3.1 1.7-2 3.4-3.1 5.4-3.1 3.6 0 5.7 3.7 4.2 7.2C19.5 16.4 12 21 12 21z"/></svg> Colour Prediction</b><div><button class="ic bell" id="bellb" aria-label="Notifications"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 22a2.4 2.4 0 0 0 2.4-2.4H9.6A2.4 2.4 0 0 0 12 22zm7-6v-5a7 7 0 0 0-5-6.7V3a2 2 0 0 0-4 0v1.3A7 7 0 0 0 5 11v5l-2 2v1h18v-1z"/></svg><span class="nbg" id="nbg" style="display:none"></span></button><button class="ic" id="rk" aria-label="Ranking">Rank</button><button class="ic" id="ad" aria-label="Admin" style="display:none">Admin</button></div></div>
 <div class="warn" id="ban">Your account has been blocked by the admin.</div><div class="warn" id="pause">The game is paused right now.</div>
@@ -259,7 +262,6 @@ textarea{font:inherit;padding:10px;border-radius:10px;border:1px solid var(--bd)
 <button class="gc" id="lbk" style="margin:14px;width:calc(100% - 28px)"><div class="gi"><b>Leaderboard</b><span>See the top players</span></div><span class="pill">View</span></button></div>
 <div class="p" id="p0">
 <div class="wl"><small>Balance</small><strong id="bal">0</strong><span class="chip" id="who"></span><div class="wb"><button class="pill" id="daily">Get more</button><button class="pill ol" id="rf">Refresh</button></div></div>
-<div class="nrm">No real money is involved. Tokens are for play only.</div>
 <div class="gt" id="gt"><button class="g on" data-d="30"><div class="clk"></div>Colour<br>30sec</button><button class="g" data-d="60"><div class="clk"></div>Colour 1<br>Min</button><button class="g" data-d="180"><div class="clk"></div>Colour 3<br>Min</button><button class="g" data-d="300"><div class="clk"></div>Colour 5<br>Min</button></div>
 <div class="tk" id="tk"><div class="tl"><button class="how" id="how">How to play</button><div id="tn" style="font-size:13px"></div><div class="mr" id="mr"></div></div>
 <div class="tr"><b>Time remaining</b><div id="tm"><span class="dg"></span><span class="dg"></span><span class="cl">:</span><span class="dg"></span><span class="dg"></span></div><div class="pid" id="pid"></div></div></div>
@@ -319,7 +321,7 @@ textarea{font:inherit;padding:10px;border-radius:10px;border:1px solid var(--bd)
 <div class="gh">History</div><div id="rhl"></div></div>
 </div>
 
-<div id="pv" class="off"><div class="pvb"><div class="pvh"><b>Privacy Policy</b><button class="pill ol" id="pvx">Close</button></div><div class="pvt">
+<div id="pvo" class="off"><div class="pvb"><div class="pvh"><b>Privacy Policy</b><button class="pill ol" id="pvx">Close</button></div><div class="pvt">
 <small>Last updated: 7 October 2026</small>
 <div class="nm">No real money is involved. This app does not accept deposits or payments, does not sell coins or tokens, and does not offer withdrawals or cash prizes. Tokens have no cash value.</div>
 <h3>1. About this app</h3><p>Colour Prediction is a game played with virtual play tokens, made for entertainment only.</p>
@@ -542,10 +544,10 @@ window.rqAct=async(id,st)=>{if(st=="rejected"&&!confirm("Reject this request and
  try{await db.runTransaction(async t=>{const d=await t.get(ref),v=d.data();if(!v||v.status!="pending")throw"handled";t.update(ref,{status:st,dts:Date.now()});if(st=="rejected")t.update(db.collection("users").doc(v.uid),{tokens:firebase.firestore.FieldValue.increment(v.cost)})});say(st=="done"?"Verified. Reward given.":"Rejected. Tokens refunded.")}
  catch(e){say(e=="handled"?"Already handled":"Could not update")}rq()};
 $("dcok").onclick=()=>$("dc").classList.add("off");
-["apv","dpv","pvb"].forEach(i=>$(i).onclick=()=>$("pv").classList.remove("off"));$("pvx").onclick=()=>$("pv").classList.add("off");
+["apv","dpv","pvb"].forEach(i=>$(i).onclick=()=>$("pvo").classList.remove("off"));$("pvx").onclick=()=>$("pvo").classList.add("off");
 // ---- Pages + bottom bar ----
 const PN={home:"ph",games:"pg",game:"p0",rank:"p1",admin:"p2",notif:"p3",support:"p4",account:"p5",rewards:"p6"},TB={home:"home",games:"games",game:"games",support:"support",account:"account",rewards:"account"};let PNL="home";
-function show(n){PNL=n;for(const k in PN)$(PN[k]).classList.toggle("on",k==n);$("back").style.visibility=TB[n]&&n!="game"&&n!="rewards"?"hidden":"visible";
+function show(n){PNL=n;for(const k in PN)$(PN[k]).classList.toggle("on",k==n);$("back").style.display=TB[n]&&n!="game"&&n!="rewards"?"none":"";
  $$("#nv button").forEach(b=>b.classList.toggle("on",b.dataset.n==TB[n]));
  if(n=="rank")board();if(n=="admin"){users();sup();rq()}if(n=="notif"){renderNt();markSeen()}window.scrollTo(0,0)}
 $$("#nv button").forEach(b=>b.onclick=()=>show(b.dataset.n));$("bellb").onclick=()=>show("notif");
